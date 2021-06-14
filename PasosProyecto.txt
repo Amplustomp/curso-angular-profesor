@@ -1,0 +1,3 @@
+ng new s03-gifsApp
+    no routing 
+    CSS
