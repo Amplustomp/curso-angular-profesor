@@ -1,0 +1,25 @@
+NodeJs backend
+==============
+    Fundamentos de Node
+    REST Services
+    JWT
+    MongoDB - Mongo Atlas
+    Express framework
+    Express validator
+    CRUD
+    Validaciones
+    Modelos de base de datos
+    Encriptar contraseñas
+    Y más...
+    Es una sección donde no tocaremos nada de Angular, pero durante algunos videos hago las referencias para que vayamos pensando como integrar todo esto con Angular.
+    Eventualmente desplegaremos nuestro backend a producción para que aprendamos como realizar todos esos pasos, pero será en secciones más adelante en el curso.
+    Pantalla completa
+
+    npm install -g nodemon
+    npm install bcryptjs  ==> Encriptar y Hash de contraseña
+    npm install cors     ==> Cross Domain, acepte peticiones de donde quiera yo
+    npm install dotenv    ==> configurar Variables de entorno
+    npm install express ==> servicios rest, montar servidor rapido
+    npm install express-validator  => validaciones en expressjson
+    npm install jsonwebtoken  => token
+    npm install mongoose ==> base no sql

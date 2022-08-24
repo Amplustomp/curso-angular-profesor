@@ -1,0 +1,121 @@
+<!--p>ordenar works!</p-->
+<div class="text-layout">
+    <p-fieldset legend="i18nPlural Pipe" [toggleable]="true">
+    
+        <h1>Pipes personalizados</h1>
+        <p>Pipes creados por {{'harrys nosotros, somos geniales'| pipe_mayuscula:false  }} </p>
+        <p>Pipes creados por {{'harrys nosotros, somos geniales'| pipe_mayuscula:true  }} </p>
+        <p>Pipes creados por {{'harrys nosotros, somos geniales'| pipe_mayuscula }} </p>
+        <p>Pipes creados por {{'harrys nosotros, somos geniales'| pipe_mayuscula:enMay }} </p>
+
+    </p-fieldset>
+
+</div>
+
+<p-toolbar>
+<a href="https://primefaces.org/primeng/showcase/#/toolbar">https://primefaces.org/primeng/showcase/#/toolbar</a>
+<a href="https://primefaces.org/primeng/showcase/#/table">https://primefaces.org/primeng/showcase/#/table</a>
+npm install @angular/cdk --save
+    <div class="p-toolbar-group-left"></div>
+    
+    <div class="p-toolbar-group-right">
+
+        <button pButton 
+                label="toggle mayúsculas"
+                class="p-mr-1 p-button-warning"
+                (click)="cambiar()"></button>
+
+        <button pButton
+                icon="pi pi-sort"
+                label="Por nombre"
+                class="p-mr-1"
+                (click)="cambiarOrden('nombres')"></button>
+
+        <button pButton
+                icon="pi pi-sort"
+                label="Por Paterno"
+                class="p-mr-1"
+                (click)="cambiarOrden('paterno')"></button>
+        
+        <button pButton
+                icon="pi pi-sort"
+                label="Vuela"
+                class="p-mr-1 p-button-success"
+                (click)="cambiarOrden('vuela')"></button>
+
+        <button pButton
+                icon="pi pi-sort"
+                label="Por color"
+                class="p-mr-1 p-button-help"
+                (click)="cambiarOrden('color')"></button>
+    </div>
+</p-toolbar>
+
+<p-fieldset legend="Grilla Sort Pipe  De Harrys" [toggleable]="true">
+
+    <div class="p-grid">
+        <div class="p-col p-mt-2">
+            <!--p-table [value]="[] "-->
+            <!--p-table [value]="lPersonas "-->
+            <!--p-table [value]="lPersonas | ordenar:'nombre'"-->
+            <p-table [value]="lPersonas | ordenar:ordenarPor">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Run</th>
+                        <th>Nombres</th>
+                        <th>Ap. Paterno</th>
+                        <th>Ap.Materno</th>
+                        <th>Vuela</th>
+                        <th>Genero</th>
+                        <th>Golor</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-persona>
+                    <tr>
+                        <td>{{ persona.run }}-{{ persona.dv }}</td>
+                        <td>{{ persona.nombres }}</td>
+                        <td>{{ persona.apPaterno }}</td>
+                        <td>{{ persona.apMaterno }}</td>
+                        <!--td>{{ persona.vuela  }}</td-->
+                        <td>{{ persona.vuela | vuela | titlecase }}</td>
+                        <td>{{ persona.genero }}</td>
+                        <td>{{ persona.color }}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</p-fieldset>
+
+
+<p-fieldset legend="Grilla Con Sort Automático" [toggleable]="true">
+    <div class="p-grid">
+        <div class="p-col p-mt-2">
+            <p-table [value]="lPersonas ">
+            <!--p-table [value]="lPersonas | slice:0"-->
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="run">Run<p-sortIcon field="run"></p-sortIcon></th>
+                        <th pSortableColumn="nombres">Nombres <p-sortIcon field="nombres"></p-sortIcon></th>
+                        <th pSortableColumn="apPaterno">Ap. Paterno<p-sortIcon field="apPaterno"></p-sortIcon></th>
+                        <th pSortableColumn="apMaterno">Ap.Materno<p-sortIcon field="apMaterno"></p-sortIcon></th>
+                        <th pSortableColumn="vuela">Vuela <p-sortIcon field="vuela"></p-sortIcon></th>
+                        <th pSortableColumn="Genero">Género <p-sortIcon field="genero"></p-sortIcon></th>
+                        <th pSortableColumn="color">Color <p-sortIcon field="color"></p-sortIcon></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-persona>
+                    <tr>
+                        <td>{{ persona.run }}-{{ persona.dv }}</td>
+                        <td>{{ persona.nombres }}</td>
+                        <td>{{ persona.apPaterno }}</td>
+                        <td>{{ persona.apMaterno }}</td>
+                        <td>{{ persona.vuela | vuela | titlecase }}</td>
+                        <td>{{ persona.genero }}</td>
+                        <td>{{ persona.color }}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</p-fieldset>

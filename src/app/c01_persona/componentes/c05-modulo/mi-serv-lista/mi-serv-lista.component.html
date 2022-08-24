@@ -1,0 +1,11 @@
+<hr>
+<h1>mi-serv-lista works!</h1>
+
+<!--div  *ngIf="false"-->
+<div  *ngIf="listaPersonas.length !=0">
+    <ul> Lista del Servicio 
+        <li *ngFor="let persona of listaPersonas; let i = index">
+            {{i+1}} - {{persona.nombres}}
+        </li>
+    </ul>
+</div>

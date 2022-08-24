@@ -1,0 +1,208 @@
+<hr>
+<h1>Página Principal  Modulos</h1>
+<div class="row">
+    <div class="col">
+        <h3>Arreglo de Personajes</h3>
+        <hr>
+        <ul>
+            <li *ngFor="let per of lPersonas">
+                {{per.nombres}} - {{per.apPaterno}}- {{per.apMaterno}} -{{per.edad | number}}
+            </li>
+
+        </ul>
+    </div>
+</div> 
+<div >
+    <h3>Registro Personajes n1</h3>
+    <table border="1">
+        <tr><td>nombres</td><td> :{{persona_n1.nombres}}:</td></tr>
+        <tr><td>apMaterno </td><td>:{{persona_n1.apMaterno}}:</td></tr>
+        <tr><td>apPaterno </td><td>:{{persona_n1.apPaterno}}:</td></tr>
+        <tr><td>edad </td><td>:{{persona_n1.edad}}:</td></tr>
+    </table>
+</div>
+
+
+<hr>
+<div class="row">
+    <div class="col">
+      <h3>Agregar por medio de Formulario Event</h3>
+      <!-- Por medio de subnit ejecutamos el evento agregarEvent($event)-->
+      <form (submit)="agregarEvent( $event )">
+        <table border="1">
+            <!--[value] los corchetes indican, que existe una variable del lado de la clase"-->
+            <tr><td>Run</td>
+                <td>
+                    <input type="text" placeholder="Run" [value]="persona_n1.run"/>
+                </td>
+            </tr>
+            <tr><td>nombres</td>
+                <td>
+                    <input type="text" placeholder="Nombre" [value]="persona_n1.nombres"/>
+                </td>
+            </tr>
+            <tr><td>Paterno</td>
+                <td>
+                    <input type="text" placeholder="Ape.Paterno" [value]="persona_n1.apPaterno"/>
+                </td>
+            </tr>
+            <tr><td>Materno</td>
+                <td>
+                    <input type="text" name="xx" placeholder="Ape.Materno" [value]="persona_n1.apMaterno"/>
+                </td>
+            </tr>
+            <tr><td>Edad</td>
+                <td>
+                    <input type="text"  name="edad" placeholder="Edad" [value]="persona_n1.edad"/>
+                </td>
+            </tr>
+        </table>
+        <!--Por medio del Button ejecutamos el Submit del Formulario-->
+        <button type="submit">Agregar Submit HTML</button>
+    </form>
+    </div>    
+</div>
+
+
+<hr>
+<div class="row">
+    <div class="col">
+        <h3>Agregar Evento Input y Value</h3>
+        <!-- Por medio de subnit ejecutamos el evento agregarSinEvent()-->
+        <!-- Observe que en esta ocasión no agregamos el evento, ya que los cambios son por medio de métodos -->
+        <form (submit)="agregarSinEvent()">
+        <table border="1">
+            <!--[value] los corchetes indican, que existe una variable del lado de la clase"-->
+            <tr><td>Run</td>
+                <td>
+                    <input type="text" placeholder="Run" [value]="persona_n1.run"/>
+                </td>
+            </tr>
+            <tr><td>nombres</td>
+                <td>
+                    <input type="text" placeholder="Nombre" [value]="persona_n1.nombres" (input)="cambiarNombre($event)"/>
+                </td>
+            </tr>
+            <tr><td>Paterno</td>
+                <td>
+                    <input type="text" placeholder="Ape.Paterno" [value]="persona_n1.apPaterno"/>
+                </td>
+            </tr>
+            <tr><td>Materno</td>
+                <td>
+                    <input type="text" name="xx" placeholder="Ape.Materno" [value]="persona_n1.apMaterno"/>
+                </td>
+            </tr>
+            <tr><td>Edad</td>
+                <td>
+                    <input type="text"  name="edad" placeholder="Edad" [value]="persona_n1.edad"/>
+                </td>
+            </tr>
+        </table>
+        <!--Por medio del Button ejecutamos el Submit del Formulario-->
+        <button type="submit">Agregar Submit Input y Value</button>
+        </form>
+    </div>    
+</div>
+
+
+<hr>
+<div class="row">
+    <div class="col">
+        <h3>Utilizando NgModel</h3>
+        <form>
+        <table border="1">
+            <tr><td>Run</td>
+                <td>
+                    <input type="text" name="xx" placeholder="Run" [(ngModel)]="persona_n1.run"/>
+                </td>
+            </tr>
+            <tr><td>nombres</td>
+                <td>
+                    <input type="text" name="xx" placeholder="Nombre" [(ngModel)]="persona_n1.nombres"/>
+                </td>
+            </tr>
+            <tr><td>Paterno</td>
+                <td>
+                    <input type="text" name="xx" placeholder="Ape.Paterno" [(ngModel)]="persona_n1.apPaterno"/>
+                </td>
+            </tr>
+            <tr><td>Materno</td>
+                <td>
+                    <input type="text" name="xx" placeholder="Ape.Materno" [(ngModel)]="persona_n1.apMaterno"/>
+                </td>
+            </tr>
+            <tr><td>Edad</td>
+                <td>
+                    <input type="text"  name="edad" placeholder="Edad" [(ngModel)]="persona_n1.edad"/>
+                </td>
+            </tr>
+        </table>
+        <!--Por medio del Button ejecutamos el Submit del Formulario-->
+        <button (click)="agregarNgModel()" >Agregar NgModel</button>
+        </form>
+    </div>    
+</div>
+
+<div class="row">
+    <div class="col">
+        <h3>Agregar Input y Value</h3>
+        <hr>
+        <!-- primero solo agrear-->
+        <!--$event no lo utilizaremos lo reemplasaremos con formModule-->
+        <form >
+        <!--form (submit)="agregarEvent( $event )" -->
+        <!--form (submit)="agregarSinEvent()"-->
+        <!--form (ngSubmit)="agregarSinEvent()"--> <!-- importamos FormMoule-->
+            <br><input type="text" placeholder="Prueba" value="Hola Mundo"/>
+            <!--[value] los corchetes indican, que existe una variable del lado de la clase"-->
+            <br><input type="text" placeholder="Rut" [value]="persona_n1.run"/>
+            <!-- One Way DataBind solo un sentido, si cambiamos el value no pasa nada-->
+            <br><input type="text" placeholder="Nombre" [value]="persona_n1.nombres" (input)="cambiarNombre($event)"/>
+            <br><input type="text" placeholder="Ape.Paterno" [value]="persona_n1.apPaterno" (input)="cambiarPaterno($event)"/>
+            
+            <!--Anterior mente usamos uno para value y otro para input-->
+            <!-- ahora los juntamos con ngModel == recordar colocar nombre-->
+            <!-- Two Way DataBind ambos sentido, para mostrar y para cambiar-->
+            
+            <br><input type="text" name="xx" placeholder="Ape.Materno" [(ngModel)]="persona_n1.apMaterno"/>
+            <br><input type="text"  name="edad" placeholder="Edad" [(ngModel)]="persona_n1.edad"/>
+            <!--button (click)="agregar()">Agregar</button-->
+            <button >Agregar</button>
+        </form>
+        <br/>
+
+    </div>
+
+<!--
+<hr/>NGModel Completo
+        <form (submit)="agregarSinEvent()">
+
+            <input type="text" placeholder="Prueba" value="Hola Mundo"/>
+            <input type="text" name="xx232" placeholder="Rut" [(ngModel)]="persona_n1.run"/>
+            <input type="text" name="xx323"  placeholder="Nombre" [(ngModel)]="persona_n1.nombres"/>
+            <input type="text" name="xx1122" placeholder="Ape.Paterno" [(ngModel)]="persona_n1.apPaterno"/>
+            <input type="text" name="xx223" placeholder="Ape.Materno" [(ngModel)]="persona_n1.apMaterno"/>
+            <input type="text"  name="edad" placeholder="Edad" [(ngModel)]="persona_n1.edad"/>
+             <button >Agregar</button>
+             
+        </form>
+
+-->
+</div>
+
+
+<!--envío a la variable lista_personas la data lPersonas-->
+<!--envío a la variable lista_personas_data la data lPersonas-->
+<app-mi-comp-input 
+            [lista_personas]="lPersonas"
+            [lista_personas_data]="lPersonas"
+            >
+
+</app-mi-comp-input>
+<!-- recibe el emit del output, y lo envia al metodo agregarPersonaOutput
+    el método recibe el $event enviado por el emit
+-->
+<app-mi-comp-output
+   (onNuevaPersona)="agregarPersonaOutput($event)"
+></app-mi-comp-output> 

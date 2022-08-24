@@ -1,0 +1,31 @@
+<!--p>pages works!</p-->
+
+<div class="row container mt-4">
+    <div class="col-3">
+        <!--Movemos a sidebar-->
+        <app-sidebar-pais></app-sidebar-pais>
+        <!--app-sidebar></app-sidebar-->
+        <!--h2>Busquedas</h2>
+        <hr>
+        <ul class="list-group">
+            <li routerLink="pais" 
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact:true}"
+                class="list-group-item active">Buscar Pais</li>
+            <li routerLink="region" 
+               routerLinkActive="active"
+               class="list-group-item">Buscar Region</li>
+            <li routerLink="capital"
+               routerLinkActive="active"
+               class="list-group-item">Buscar Capital</li>
+            <li class="list-group-item"><a href="/capital">Prueba Capital href</a></li>
+        </ul-->
+    </div>
+    <div class="col">
+        
+<!--Router oullet, permite saltar entre las rutas -->
+<!--No Olvide importar RouterModule, en el módulo más cercano-->
+        <router-outlet></router-outlet>
+    </div>
+
+</div>

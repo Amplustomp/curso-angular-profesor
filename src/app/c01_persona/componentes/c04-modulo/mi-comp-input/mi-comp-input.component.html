@@ -1,0 +1,23 @@
+<hr>
+<h1>mi-comp-input works!</h1>
+
+<div class="col">
+    <h3>Personajes Componente</h3>
+    <hr>
+    <ul>
+        <li *ngFor="let per of lista_personas">
+            {{per.nombres}} - {{per.apMaterno}} -{{per.edad | number}}
+        </li>
+
+    </ul>
+</div>
+<div class="col">
+    <h3>Personajes data</h3>
+    <hr>
+    <ul>
+        <li *ngFor="let per of lista_personas_v2">
+            {{per.nombres}} - {{per.apMaterno}} -{{per.edad | number}}
+        </li>
+
+    </ul>
+</div>

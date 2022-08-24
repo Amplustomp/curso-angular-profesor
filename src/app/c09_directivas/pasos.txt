@@ -1,0 +1,15 @@
+Directivas
+==========
+    https://angular.io/guide/attribute-directives
+        Ejercicio highlight
+    Directivas personalizadas
+    Directivas estructurales personalizadas
+    Manipulación del elemento del DOM que es host de la directiva
+    Cambio del HTML y estilos del objeto DOM host.
+    Y más
+    El objetivo de esta sección es crear una directiva que nos ayude a pulir la parte de mensajes de validación de los formularios reactivos, es un ejemplo real y aplicado de una directiva personalizada funcionando.
+    ng g m c09_directivas/directivas --routing --flat
+    ng g m c09_directivas/shared 
+    ng g c c09_directivas/pages/agregar --skip-tests  
+    ng g d c09_directivas/shared/directivas/errorMsg --skip-tests  
+    ng g d c09_directivas/shared/directivas/customIf --skip-tests  

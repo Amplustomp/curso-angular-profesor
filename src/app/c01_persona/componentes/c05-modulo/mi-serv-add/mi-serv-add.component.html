@@ -1,0 +1,20 @@
+<hr>
+<h1>mi-serv-add works!</h1>
+<hr>
+<div class="row">
+    <div class="col">
+        <h3>Agregar Servicio</h3>
+        <!-- If ngModel is used  within a form tag,
+            cuando no le colocas name al input
+        -->
+        <hr>
+            <form (ngSubmit)="agregarSinEvento()"> <!-- importamos FormMoule  agregarSinEvento()-->
+                <input type="text" name="run" placeholder="Rut" [(ngModel)]="persona_serv.run"/>
+                <input type="text" name="nombres" placeholder="Nombre" [(ngModel)]="persona_serv.nombres" />
+                <input type="text" name="apPaterno" placeholder="Ape.Paterno" [(ngModel)]="persona_serv.apPaterno"/>
+                <input type="text" name="apMaterno" placeholder="Ape.Materno" [(ngModel)]="persona_serv.apMaterno"/>
+                <input type="text"  name="edad" placeholder="Edad" [(ngModel)]="persona_serv.edad"/>
+                <button >Agregar</button>
+            </form>
+    </div>        
+</div>

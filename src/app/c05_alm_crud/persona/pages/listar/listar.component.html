@@ -1,0 +1,36 @@
+<!--p>listar works!</p-->
+
+<h1>Listado de Héroes</h1>
+<!--ul>
+    <li *ngFor="let per of lPersona">
+        {{per.superhero}}
+    </li>
+</ul--> 
+
+
+<mat-divider></mat-divider>
+<br>
+<!--import module fxLayout
+    wrap cuando se llene salte a la siguiente linea    
+     fxLayoutGap ==>separacion
+     fxLayout.xs ==> cuando es muy pequeño muestra una sola columna
+-->
+<div fxLayout="row wrap"
+     fxLayout.xs="column"
+     fxLayoutAlign="center"
+     fxLayoutGap="20px">
+<!--
+    fxFlex  20 Porciento de la tarjeta
+    fxFlex.lg
+    fxFlex.sm
+-->
+    <div fxFlex="20"
+         fxFlex.lg="15"
+         fxFlex.sm="30"
+         *ngFor="let persona of lPersona">
+       
+        <app-persona-tarjeta [persona]="persona"></app-persona-tarjeta>
+    </div>
+</div>
+
+

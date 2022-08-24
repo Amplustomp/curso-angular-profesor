@@ -1,0 +1,132 @@
+.- S17 Formularios (Templates y Reactivos)
+    en Esta seccion Soo Templates
+    Template driven
+    ViewChild
+    Two way databinding
+    Formularios dinámicos
+    Checks, radios y switches
+    Directivas personalizadas - Nota: este tema se cubre a profundidad después en una sección especializada
+    Manejo del formulario y validaciones
+    Encapsular módulos y scope de los mismos    
+
+    .- (Crear un proyecto con routing)
+    .- Bootstrap en la página Principal
+
+    ng g m c06_form/shared
+    ng g c c06_form/shared/sidemenu --skip-tests
+    ng g c c06_form/pages/home --skip-tests
+    ng g m c06_form/appFrmTmp --flat
+    ng g m c06_form/appFrmTmpRouting --flat
+        Agregamos appFrmTmpRouting a appFrmTmp
+        Agregamos appFrmTmp al appRouting Principal
+    ng g m --help
+    ng g m  c06_form/frmTmp --routing
+    ng g m  c06_form/frmReac --routing
+    ng g c  c06_form/frm-reac/reacBasicos --skip-tests
+    ng g c  c06_form/frm-reac/reacDinamicos --skip-tests
+    ng g c  c06_form/frm-reac/reacSwitches --skip-tests
+        Agregamos en el routing las rutas
+    ng g c  c06_form/frm-tmp/tmpBasicos --skip-tests
+    ng g c  c06_form/frm-tmp/tmpDinamicos --skip-tests
+    ng g c  c06_form/frm-tmp/tmpSwitches --skip-tests
+        Agregamos en el routing las rutas
+
+   Template
+      Angular se encarga de todo, la lógica se encuentra en el html
+   Reactive
+      el Componente (ts), tiene la mayor carga de la lógica
+
+
+   Templae-Basico
+      importar FormsModule para ngForm
+      Creamos un Formulario
+      toucch y invalid en el formulario
+      nombreValido en el ts
+      precioValido en el ts
+      crear directiva customMin
+           .- es opcional es avanzado
+      Limpiar Template
+            this.miFormulario.resetForm({})
+      recordar [(ngModel)]="juego.nombre"
+                [(ngModel)] => permita two databind
+
+Formularios Reactivos
+=====================
+    https://angular.io/guide/reactive-forms
+    Lazyload y tareas relacionadas
+    Validaciones propias de Angular
+    Arreglos y objetos anidados
+    FormBuilder
+    FormGroup
+    FormArray
+    Esta sección continua en la siguiente con más temas relacionados a formularios reactivos, ya que como se podrán imaginar es bastante información que digerir, pero lo importante aquí es que comprendamos que Angular cuenta con varias maneras de manejar formularios.
+    Muchos me pregunta cuál aproximación prefiero, y son los formularios reactivos, porque siento que tengo mayor control y más fácilmente puedo manipular el formulario, pero los formularios por template sirven mucho cuando son tareas simples o rápidas. Aunque en esos casos, muchas veces prefiero no utilizar formularios por template y simplemente tomo el valor que necesito con referencias locales.
+
+   Los Formularios son muy poderosos
+        No conocen el ngModel, da error
+        usar el FormControlName o FormControl segun sea
+        no utilizar name con formControlName,
+   Básico
+        Utilizar FormGroup
+        Asociar por medio del FormControl cada campo
+        Trabajar con FormBuilder
+               poner validaciones
+               agregar disabled    
+         Creamos un segunro FormControl
+
+Validaciones propias en reactivos
+================================
+            Validaciones manuales
+            Validaciones asíncronas
+            Validar contra expresiones regulares
+            Separar la lógica de validaciones
+            Estado del formulario
+            Mensajes de error personalizados    
+            .- ng g m c06_form/auth --routing
+            .- ng g c c06_form/auth/pages/registro --skip-tests
+            .- ng g c c06_form/auth/pages/login --skip-tests
+            .- actualizamos nuestro routing
+            .- cargamos nuestro modulo en forma perezosa
+               realizamos el registros con validaciones básicas
+            .- ng g s c06_form/shared/validator/validator --skip-tests
+            .- ng g s c06_form/shared/validator/emailValidator --skip-tests
+                json-server --watch db.json
+            lo bueno de un observable es que se cancela y se reenvia no se acumula
+
+
+Selectores Anidados
+===================
+    Creamos un proyecto
+    boostrap en el index.html==> cdn
+    .- ng g m c06_form/paises --routing
+    .- ng g c c06_form/paises/pages/paises --skip-tests
+    .- ng g s c06_form/paises/services/paises --skip-tests
+    .- Sericios paises con continentes
+       buscar paises con filtros de field 
+Ciclo de Vida
+=============
+    https://angular.io/guide/lifecycle-hooks       
+    .- ng g c c06_form/lifecycle/pages/lifecycle --skip-tests
+    .- ng g c c06_form/lifecycle/pages/pagePrin --skip-tests
+    .- ng g c c06_form/lifecycle/pages/muestraNnombre  --skip-tests
+    
+
+
+Bookmarks
+    https://marketplace.visualstudio.com/items?itemName=alefragnani.Bookmarks
+Bracket Pair Colorizer 2
+    https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2
+Color Highlight
+    https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight
+Liveserver
+    https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
+Material Icon Theme
+    https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme
+Material Theme
+    https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme
+Paste JSON as Code
+    https://marketplace.visualstudio.com/items?itemName=quicktype.quicktype
+TODO Highlight
+    https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight
+TODO Tree
+    https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree

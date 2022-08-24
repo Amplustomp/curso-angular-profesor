@@ -1,0 +1,168 @@
+<!--p>agregar works!</p-->
+<h1>
+    {{ ( persona.id )? 'Editar' : 'Nuevo' }}
+    Persona
+    <small>{{ persona.superhero }}</small> 
+</h1>
+
+<div fxLayout="row"
+     fxLayoutGap="40px"
+     fxLayout.xs="column">
+
+     <div fxFlex="50" fxLayout="column">
+
+        <div fxLayout="row" 
+             fxLayout.xs="column" 
+             fxLayoutGap="20px">
+            <mat-form-field fxFlex="100" 
+                fxLayout.xs="column" >
+               <mat-label>Run</mat-label>
+               <input matInput
+                      type="text"
+                      [(ngModel)]="persona.run"
+                      required>
+           </mat-form-field>
+           -
+           <mat-form-field fxFlex="100" 
+                fxLayout.xs="column" >
+                <mat-label>Dv</mat-label>
+                        <input matInput
+                        type="text"
+                        [(ngModel)]="persona.dv"
+                        required>
+                    </mat-form-field>
+        </div>
+
+        <div fxLayout="row" 
+             fxLayout.xs="column" 
+             fxLayoutGap="20px">
+            <mat-form-field fxFlex="100" 
+                fxLayout.xs="column" >
+               <mat-label>Nombres</mat-label>
+               <input matInput
+                      type="text"
+                      [(ngModel)]="persona.nombres"
+                      required>
+           </mat-form-field>
+        </div>
+
+        <div fxLayout="row" 
+             fxLayout.xs="column" 
+             fxLayoutGap="20px">
+            <mat-form-field fxFlex="100" 
+                fxLayout.xs="column" >
+               <mat-label>Paterno</mat-label>
+               <input matInput
+                      type="text"
+                      [(ngModel)]="persona.apPaterno"
+                      required>
+           </mat-form-field>
+        </div>
+
+        <div fxLayout="row" 
+             fxLayout.xs="column" 
+             fxLayoutGap="20px">
+            <mat-form-field fxFlex="100" 
+                fxLayout.xs="column" >
+               <mat-label>Materno</mat-label>
+               <input matInput
+                      type="text"
+                      [(ngModel)]="persona.apMaterno"
+                      required>
+           </mat-form-field>
+        </div>
+
+        <mat-form-field>
+            <mat-label>Genero</mat-label>
+            <mat-select [(ngModel)]="persona.genero"
+                        required>
+                <mat-option *ngFor="let gen of genero"
+                            [value]="gen.id">
+                    {{ gen.desc }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Color{{persona.color}}</mat-label>
+            <mat-select [(ngModel)]="persona.color"
+                        required>
+                <mat-option *ngFor="let item of color"
+                            [value]="item.id">
+                    {{ item.desc }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+        <div fxLayout="row" 
+             fxLayout.xs="column" 
+             fxLayoutGap="20px">
+
+            <mat-form-field fxFlex="100" fxLayout.xs="column" >
+                <mat-label>Super Héroe</mat-label>
+                <input matInput
+                       type="text"
+                       [(ngModel)]="persona.superhero"
+                       required>
+            </mat-form-field>
+    
+            <mat-form-field fxFlex="100">
+                <mat-label>Alter Ego</mat-label>
+                <input matInput
+                       type="text"
+                       [(ngModel)]="persona.alter_ego"
+                       required>
+            </mat-form-field>
+        </div>
+
+
+
+        <mat-form-field>
+            <mat-label>Foto Url</mat-label>
+            <input matInput
+                   type="url"
+                   [(ngModel)]="persona.idImg"
+                   required>
+        </mat-form-field>
+
+        <br>
+
+
+        <div fxLayout>
+            <button mat-raised-button 
+                    color="primary"
+                    (click)="guardar()">
+                <mat-icon>edit</mat-icon>
+                {{ ( persona.id )? 'Actualizar' : 'Crear' }}
+            </button>
+        
+            <span class="spacer"></span>
+
+            <button *ngIf="persona.id"
+                    mat-raised-button
+                    (click)="borrarHeroe()"
+                    color="warn">
+                <mat-icon>remove</mat-icon>
+                Borrar
+            </button>
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+     <!--div *ngIf="persona.idImg" -->
+     <div          
+        fxFlex="50">
+        <img [src]="persona | personaImagenPipe">
+    </div>
+
+
+</div>

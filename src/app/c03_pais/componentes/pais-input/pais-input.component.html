@@ -1,0 +1,15 @@
+<!--p>pais-input works!</p-->
+<form autocomplete="off" 
+     action=""
+     (ngSubmit)="buscar()"
+     >
+<input type="text"
+     name="txBuscar"
+     class="form-control"
+     (input)="teclaPresionada($event)"
+     [(ngModel)]="txBuscar"
+     [placeholder]="placeHolderVar"
+     >
+     <!--placeholder="Buscar Por Pais...."-->
+</form>
+

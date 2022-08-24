@@ -1,0 +1,141 @@
+<!--p>tmp-basicos works!</p-->
+<h2>Template: Básicos</h2>
+<hr>
+<!-- importar FormsModule, permite no refrescar el formulario-->
+
+<div class="row">
+    <div class="col">
+  <!--#miFormulario="ngForm"  enlace el formulario con la variable miFormulario-->
+  <!--form (ngSubmit)="guardar(miFormulario)"-->
+  <form (ngSubmit)="guardar()"
+              #miFormulario="ngForm"
+              autocomplete="off">
+            
+            <!-- Campo de producto -->
+            <div class="mb-3 row">
+
+
+                <label class="col-sm-3 col-form-label">Producto</label>
+
+
+                <div class="col-sm-9">
+                    <!--ngModel permite enlazar con la variable del ts
+                        debes especificar el name
+                        requered => requerido
+                    -->
+                    <input type="text"
+                           class="form-control"
+                           [ngModel]="initForm.producto"
+                           name="producto"
+                           placeholder="Nombre del producto"
+                           required
+                           minlength="3">
+                
+                    <span class="form-text text-danger"
+                        *ngIf="nombreValido()">
+                        Debe de ser de 3 letras
+                    </span>
+
+                    <!--el formulario aun no ha sido renderizado
+                        por lo cual 
+                        miFormulario.controls.producto==> aun no existe
+                        miFormulario.controls.producto?==>  si no es null
+                        Esto es template
+                -->
+                    <span class="form-text text-danger"
+                        *ngIf="miFormulario.controls.producto?.invalid
+                              && miFormulario.controls.producto?.touched">
+                        <br>** Debe de ser de 3 xx letras
+                    </span>
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <!-- Campo de producto -->
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Precio</label>
+                <div class="col-sm-9">
+                    <input type="number"
+                           class="form-control"
+                           [ngModel]="initForm.precio"
+                           name="precio"
+                           placeholder="Precio del producto"
+                           required
+                           min="0">
+                    <span class="form-text text-danger"
+                           *ngIf="precioNoValido()">
+                        El precio debe de ser 0 o mayor
+                    </span>
+                </div>
+            </div>
+
+            <!-- Campo de existencias -->
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Existencias</label>
+                <div class="col-sm-9">
+                    <!--[minimo]="0" esta en CustonMinDirectiva-->
+                    <input type="number"
+                           class="form-control"
+                           [ngModel]="initForm.existencias"
+                           name="existencias"
+                           customMin
+                           [minimo]="2"
+                           placeholder="Existencias del producto"
+                           required>
+                        </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col">
+                    <!--[disabled]= deshabilitado mientras se cumpla la condicion-->
+                    <button type="submit"
+                            [disabled]="miFormulario.invalid"
+                            class="btn btn-primary float-end">
+                        Guardar
+                    </button>
+                </div>
+            </div>
+
+
+
+        </form>
+
+    </div>
+</div>
+
+
+
+
+<div class="row">
+    <div class="col">
+<!--miFormulario.valid revisa todas las validaciones
+     minvalue,require,etc
+    -->
+        <span>Formulario Valid</span>
+        <pre>{{ miFormulario.valid }}</pre>
+       <!--Pristine no se ha cambiado ninguno de los valores,
+           con los cuales se presento el formulario -->
+        <span>Pristine</span>
+        <pre>{{ miFormulario.pristine }}</pre>
+        <!--Touched, el usuario toco, algun campo, 
+             no importando si lo cambio-->
+        <span>Touched</span>
+        <pre>{{ miFormulario.touched }}</pre>
+        <!--cada campo tiene su pristin y touch-->
+        <span>Value</span>
+        <pre>{{ miFormulario.value | json }}</pre>
+
+        <span>CustomDirective</span>
+        <pre>{{ miFormulario.controls.existencias.errors | json }}</pre>
+
+    </div>
+</div>
+
+

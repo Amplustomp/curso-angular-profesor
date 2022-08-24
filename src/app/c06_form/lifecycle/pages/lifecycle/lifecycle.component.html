@@ -1,0 +1,14 @@
+< <p>{{ nombre }}</p>
+<input type="text" 
+[(ngModel)]="nombre"
+placeholder="Hola Mundo">
+
+<button (click)="guardar()">
+    Click
+</button>
+
+<br><br> >
+
+<app-muestra-nnombre [nombre]="nombre"></app-muestra-nnombre> 
+
+<h1>Segundos: {{ segundos }}</h1>

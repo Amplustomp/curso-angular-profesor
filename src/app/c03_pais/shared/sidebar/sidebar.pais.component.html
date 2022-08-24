@@ -1,0 +1,18 @@
+<!--p>sidebar works!</p-->
+<h2>Busquedas</h2>
+<hr>
+<ul class="list-group">
+    <li routerLink="pais-pais" 
+    routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact:true}"
+        class="list-group-item active">Buscar Pais</li>
+    <li routerLink="pais-region" 
+       routerLinkActive="active"
+       class="list-group-item">Buscar Region</li>
+    <li routerLink="pais-capital"
+       routerLinkActive="active"
+       class="list-group-item">Buscar Capital</li>
+    <!-- no conviene por refresco-->
+    <li class="list-group-item"><a href="/capital">Prueba Capital href</a></li>
+</ul>
+

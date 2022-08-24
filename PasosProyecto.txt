@@ -1,3 +1,24 @@
-ng new s03-gifsApp
-    no routing 
-    CSS
+Ionic 
+    npm install -g ionic
+    ionic start deseos tabs
+    cd .\deseos
+    ionic serve --lab
+
+
+
+
+Seccion11
+=========
+    Pipes ngPrimes primeicons
+
+
+Camila y sus Boys
+Marilaf
+Tatiana y Renato Saldivia
+
+npm install -g ionic
+npm install -g cordova
+
+
+
+https://www.theaudiodb.com/api/v1/json/1/search.php?s=los%20tres

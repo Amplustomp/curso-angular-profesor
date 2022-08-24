@@ -1,0 +1,32 @@
+https://www.mapbox.com/
+https://www.google.com/maps
+https://getbootstrap.com/
+Temas
+    Manejo de librerías escritas en JavaScript en TypeScript
+    Uso de Mapas basados en Mapbox (el API es similar a la de Google Maps)
+    Marcadores
+    Eventos
+    FlyTo
+    Coordenadas geográficas
+    Componentes para re-utilización de mapas
+    Mantener objetos de forma persistente
+    @types
+    Zoom
+    Range
+    Y más
+.- Creamos un nuevo proyecto
+.- Creamos un usuario en MapBox    
+    ng g m c07_mapas/mapas --routing
+    ng g c c07_mapas/mapas/componentes/miniMap --skip-tests
+    ng g c c07_mapas/mapas/pages/home --skip-tests
+    ng g c c07_mapas/mapas/pages/fullScreen --skip-tests
+    ng g c c07_mapas/mapas/pages/marcadores --skip-tests
+    ng g c c07_mapas/mapas/pages/zoomRange --skip-tests
+    ng g c c07_mapas/mapas/pages/propiedades --skip-tests
+    ng g c c07_mapas/mapas/shared/menuMap --skip-tests
+
+    pegamos la clave en enviroment
+    lo podemos hacer por cdn o por npm
+            npm install mapbox-gl --save
+    agregar el include parecido a boostrap
+            npm i --save-dev @types/mapbox-gl

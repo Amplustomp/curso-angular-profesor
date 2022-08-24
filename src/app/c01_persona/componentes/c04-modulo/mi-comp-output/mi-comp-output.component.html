@@ -1,0 +1,20 @@
+<hr>
+<h1>mi-comp-output works!</h1>
+<hr>
+<div class="row">
+    <div class="col">
+        <h3>Agregar Output</h3>
+        <!-- If ngModel is used  within a form tag,
+            cuando no le colocas name al input
+        -->
+        <hr>
+            <form (ngSubmit)="agregarSinEvento()"> <!-- importamos FormMoule-->
+                <input type="text" name="run" placeholder="Rut" [(ngModel)]="persona_ot.run"/>
+                <input type="text" name="nombres" placeholder="Nombre" [(ngModel)]="persona_ot.nombres" />
+                <input type="text" name="apPaterno" placeholder="Ape.Paterno" [(ngModel)]="persona_ot.apPaterno"/>
+                <input type="text" name="apMaterno" placeholder="Ape.Materno" [(ngModel)]="persona_ot.apMaterno"/>
+                <input type="text"  name="edad" placeholder="Edad" [(ngModel)]="persona_ot.edad"/>
+                <button >Agregar</button>
+            </form>
+    </div>        
+</div>

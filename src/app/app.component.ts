@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 's03-gifsApp';
+  constructor(private pNC:PrimeNGConfig){}
+  ngOnInit(): void {
+    this.pNC.ripple=true
+  }
 }

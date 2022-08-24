@@ -1,0 +1,33 @@
+Gráficas
+========
+    Gráficas dinámicas
+    Gráficas de Barra y Dona
+    Re-dibujar valores de gráfica
+    Gráficas basadas en peticiones HTTP
+    Componentes especializados para la re-utilización de gráficas
+    Y más...
+    Esta sección tiene por objetivo enseñarles a usar otra librería de terceros en Angular, para que comprendamos como mostrar de forma visual la data de nuestros componentes.
+    Pantalla completa
+
+.- agrear boostrap
+.- ng g m c08_graficas/graficas --routing
+.- ng g c c08_graficas/graficas/componentes/graficaBarra --skip-tests
+.- ng g c c08_graficas/graficas/shared/menu --skip-tests
+.- ng g s c08_graficas/graficas/services/graficas --skip-tests
+.- ng g c c08_graficas/graficas/pages/home --skip-tests
+.- ng g c c08_graficas/graficas/pages/barras --skip-tests
+.- ng g c c08_graficas/graficas/pages/barrasDoble --skip-tests
+.- ng g c c08_graficas/graficas/pages/dona --skip-tests
+.- ng g c c08_graficas/graficas/pages/donaHttp --skip-tests
+
+npm install chart.js@2.9.3 --save
+npm install ng2-charts@2.2.3 --save
+
+NOOOOOOOOOOO    npm install --save ng2-charts
+NOOOOOOOOOOO    npm install --save chart.js
+  corregir en build,option, agregar como primera opcion
+    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
+    "ng2-charts": "^2.4.2",
+
+NOOOOO   "allowedCommonJsDependencies": ["chart.js"],

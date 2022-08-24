@@ -1,0 +1,48 @@
+<!--p>persona works!</p-->
+
+<mat-grid-list cols="1" *ngIf="!persona; else divPersona">
+    <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+</mat-grid-list>
+
+
+<ng-template #divPersona>
+    
+    <div fxLayout="row"
+         fxLayout.xs="column"
+         fxLayoutGap="30px">
+
+         <div fxFlex="50">
+             <h1>{{ persona.superhero }} <small>- {{ persona.alter_ego }} </small> </h1>
+             <mat-divider></mat-divider>
+             <br>
+             <img [src]="persona | personaImagenPipe">
+         </div>
+
+         <div fxFlex="50">
+             <h1>{{ persona.run }}</h1>
+             <mat-divider></mat-divider>
+
+             <mat-list>
+                 <mat-list-item> {{ persona.nombres }} </mat-list-item>
+                 <mat-list-item> {{ persona.apPaterno }} </mat-list-item>
+                 <mat-list-item> {{ persona.genero }} </mat-list-item>
+                 <mat-list-item> {{ persona.alter_ego }} </mat-list-item>
+             </mat-list>
+
+             <br>
+             <button mat-button
+                     color="warn"
+                     (click)="regresar()">
+                 Regresar
+             </button>
+         </div>
+
+    </div>
+
+
+</ng-template>
+
+
+

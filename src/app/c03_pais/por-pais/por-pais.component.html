@@ -1,0 +1,86 @@
+<!--p>por-pais works!</p-->
+<h2>Por Pais</h2>
+<hr>
+<div class="row">
+    <div class="col">
+<!-- (onEnter) cuando no emita la señal onEnter ejecute buscarEmit-->
+<!-- (onDebounce) cuando no emita la señal onDebounce ejecute sugerencia-->
+        <app-pais-input
+            (onEnter)="buscarEmit( $event )"
+            (onDebounce)="sugerencia($event)"
+            placeHolderVar="Harrisito, Buscar por País..."
+        ></app-pais-input>
+        <!--form autocomplete="off" 
+              action=""
+              (ngSubmit)="buscar()"
+              >
+            <input type="text"
+                   name="txBuscar"
+                   class="form-control"
+                   [(ngModel)]="txBuscar"
+                   placeholder="Harrisito, Buscar Por Pais...."
+            >
+        </form-->
+    </div>
+
+
+<!-- A Medida que se escriba, se mostrará un bloque
+     con las posibles palabras
+-->
+    <ul *ngIf="mostrarSugerencias"
+        class="list-group">
+<!--Muestra los paisesSugeridos-->
+        <li *ngFor="let pais of paisesSugeridos"
+            class="list-group-item list-group-item-action">
+            <a class="nav-link"
+               [routerLink]="['/ver-pais', pais.alpha2Code]">
+                {{ pais.name }}
+            </a>
+        </li>
+<!--(click), buscar el país seleccionado desde los sugeridos -->                
+        <li class="list-group-item list-group-item-action"
+            (click)="buscarSugerido( txBuscar )">
+            <a class="nav-link">
+                Buscar "{{ txBuscar }}"
+            </a>
+        </li>
+    </ul>
+
+
+
+</div>
+<hr>
+<div class="alert alert-danger"
+     *ngIf="swError">
+    No se encontro data, con {{txBuscar}}
+</div>
+
+
+<!--El componente pais-tabla muestra los resultados -->
+<div class="row" *ngIf="!swError">
+    <div class="col">
+        <app-pais-tabla [paises_entrada]="paises"></app-pais-tabla>
+        <!--
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Bandera</th>
+                <th>Nombre</th>
+                <th>Población</th>
+                <th></th>
+            </tr>
+        </thead>
+            <tbody>
+                <tr *ngFor="let pais of paises;let i=index">
+                    <td>{{i+1}}</td>
+                    <td><img [src]="pais.flag" alt="" class="small-flag"></td>
+                    <td>{{pais.name}}</td>
+                    <td>{{pais.population| number}}</td>
+                    <td><a [routerLink]="['/ver-pais',pais.alpha2Code]">Ver..</a></td>
+                </tr>
+            </tbody>
+        </table>
+        -->
+    </div>
+</div>
